@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+
+service Customers {
+  rpc QueryCustomers (QueryCustomersRequest) returns (QueryCustomersResponse);
+}
+
+message Customer {
+    int32 id = 1;
+    google.protobuf.StringValue given_name = 2;
+    google.protobuf.StringValue lastname = 3;
+    google.protobuf.StringValue description = 4;
+}
+
+message QueryCustomersRequest {
+  int32 page = 1;
+  int32 page_size = 2;
+}
+
+message QueryCustomersResponse {
+    int32 page = 1;
+    int32 page_size = 2;
+    int32 total_items = 3;
+    repeated Customer items = 4;
+}

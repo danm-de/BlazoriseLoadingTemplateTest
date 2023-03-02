@@ -1,0 +1,35 @@
+﻿@page "/"
+
+<PageTitle>Customers</PageTitle>
+
+<Row>
+    <Column>
+        <Alert TextColor="TextColor.Danger" Visible="HasError">@_errorMessage</Alert>
+    </Column>
+</Row>
+
+<Row>
+    <Column>
+        <DataGrid TItem="Customer"
+                  Data="@_items"
+                  TotalItems="@_totalItems"
+                  ReadData="@OnReadData"
+                  ShowPager="true"
+                  ShowPageSizes="true"
+                  Responsive="true"
+                  Sortable="false"
+                  PageSize="500"
+                  PageSizes="@(new[] { 5, 10, 50, 100, 250, 500, 1000 })"
+                  PagerPosition="DataGridPagerPosition.TopAndBottom">
+            <DataGridColumns>
+                <DataGridNumericColumn TItem="Customer" Field="@nameof(Customer.Id)"/>
+                <DataGridColumn TItem="Customer" Field="@nameof(Customer.GivenName)"/>
+                <DataGridColumn TItem="Customer" Field="@nameof(Customer.Lastname)"/>
+                <DataGridColumn TItem="Customer" Field="@nameof(Customer.Description)"/>
+            </DataGridColumns>
+            <LoadingTemplate>
+                <SpinKit Type="@SpinKitType.Circle"/>
+            </LoadingTemplate>
+        </DataGrid>
+    </Column>
+</Row>

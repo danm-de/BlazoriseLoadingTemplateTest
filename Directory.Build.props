@@ -1,0 +1,7 @@
+<Project>
+	<PropertyGroup>
+		<!-- Use latest C# version, see https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/configure-language-version#configure-multiple-projects -->
+		<LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+</Project>

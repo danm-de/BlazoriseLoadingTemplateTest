@@ -1,0 +1,34 @@
+﻿@inherits LayoutComponentBase
+
+<Layout>
+    <LayoutHeader Fixed>
+        Header
+    </LayoutHeader>
+    <Layout Sider>
+        <LayoutSider>
+            <LayoutSiderContent>
+                <Bar Mode="BarMode.VerticalInline" 
+                     CollapseMode="BarCollapseMode.Small"
+                     Breakpoint="Breakpoint.Tablet"
+                     NavigationBreakpoint="Breakpoint.Tablet"
+                     ThemeContrast="ThemeContrast.Light">
+                    <BarMenu>
+                        <BarStart>
+                            <BarItem>
+                                <BarLink To="/" Title="Home">
+                                    <BarIcon class="fa-fw" IconName="FaIcon.Home" IconStyle="IconStyle.Regular" />
+                                    Home
+                                </BarLink>
+                            </BarItem>
+                        </BarStart>
+                    </BarMenu>
+                </Bar>
+            </LayoutSiderContent>
+        </LayoutSider>
+        <Layout>
+            <LayoutContent Margin="Margin.Is1.OnAll.OnMobile.Is3.FromStart.OnDesktop.Is3.FromEnd.OnDesktop.Is2.FromTop.OnDesktop.Is2.FromBottom.OnDesktop">
+                @Body
+            </LayoutContent>
+        </Layout>
+    </Layout>
+</Layout>

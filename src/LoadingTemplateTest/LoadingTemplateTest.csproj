@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    
+    <PackageReference Include="Blazorise.Bootstrap5" Version="1.2.0" />
+    <PackageReference Include="Blazorise.DataGrid" Version="1.2.0" />
+    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.2.0" />
+    <PackageReference Include="Blazorise.SpinKit" Version="1.2.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.51.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- generate types for both, server and client -->
+    <Protobuf Include="..\..\protos\*.proto" GrpcServices="Client" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+</Project>
