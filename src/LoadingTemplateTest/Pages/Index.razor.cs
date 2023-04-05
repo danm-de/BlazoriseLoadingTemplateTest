@@ -11,7 +11,7 @@ public partial class Index
     private List<Customer>? _items;
     private int? _totalItems;
     private string? _errorMessage;
-    private int _pageSize = 10;
+    private int _pageSize = 100;
 
     [Inject]
     private CustomerService Service { get; set; } = null!;
