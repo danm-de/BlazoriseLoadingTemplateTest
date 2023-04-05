@@ -19,7 +19,11 @@ public class FakeDatabase
                 Id = id++,
                 GivenName = f.Name.FirstName(),
                 Lastname = f.Name.LastName(),
-                Description = f.Lorem.Slug()
+                Description = f.Lorem.Slug(),
+                City = f.Address.City(),
+                Country = f.Address.Country(),
+                Street = f.Address.StreetAddress(),
+                ZipCode = f.Address.ZipCode()
             });
         _customers = testCustomers.Generate(TotalCount);
     }

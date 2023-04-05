@@ -9,6 +9,8 @@ public class CustomerService : Customers.CustomersBase
     private readonly FakeDatabase _database;
     private readonly Random _random = Random.Shared;
 
+    private static int _requestCount;
+
     public CustomerService(FakeDatabase database) => _database = database;
 
     public override async Task<QueryCustomersResponse> QueryCustomers(
@@ -18,7 +20,12 @@ public class CustomerService : Customers.CustomersBase
         var cancellationToken = context.CancellationToken;
 
         // simulate network delay
-        await Task.Delay(_random.Next(2000), cancellationToken);
+        var millisecondsDelay = _random.Next(300);
+        await Task.Delay(millisecondsDelay, cancellationToken);
+
+        var count = Interlocked.Increment(ref _requestCount);
+        Console.WriteLine("{0}: received request for {1} items, served after {2}ms",
+            count, request.PageSize, millisecondsDelay);
 
         var page = Math.Max(request.Page, 1);
         var pageSize = Math.Max(request.PageSize, 1);

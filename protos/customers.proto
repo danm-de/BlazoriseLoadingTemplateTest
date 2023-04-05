@@ -11,6 +11,10 @@ message Customer {
     google.protobuf.StringValue given_name = 2;
     google.protobuf.StringValue lastname = 3;
     google.protobuf.StringValue description = 4;
+    google.protobuf.StringValue street = 5;
+    google.protobuf.StringValue city = 6;
+    google.protobuf.StringValue zip_code = 7;
+    google.protobuf.StringValue country = 8;
 }
 
 message QueryCustomersRequest {
